@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>塞纳左岸</title>
+	<link rel="stylesheet" href="index1.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+	<!-- <link rel="stylesheet/less" href="imdex.less"> -->
+	<script src="less1.7.min.js"></script>
+	<script>
+	(function(win) {
+    var doc = win.document;
+    var docEl = doc.documentElement;
+	var metaEl = document.querySelector('meta[name="viewport"]');
+    var tid;
+	dpr = window.devicePixelRatio || 1;//计算倍率
+	scale = 1 / dpr;//计算缩放的比
+	metaEl.setAttribute('content', 'width=' + dpr * docEl.clientWidth + ',initial-scale=' + scale + ',maximum-scale=' + scale + ', minimum-scale=' + scale + ',user-scalable=no');
+	// 设置data-dpr属性，留作的css hack之用
+	docEl.setAttribute('data-dpr', dpr);
+
+    function refreshRem() {
+        var width = docEl.clientWidth;//逻辑像素
+          if (width > 750) { // 最大宽度
+            width = 1024;
+        }
+        var rem = width / 10; // 将屏幕宽度分成10份， 1份为1rem
+        docEl.style.fontSize = rem + 'px';
+    }
+//侦听事件并处理相应的函数。
+    win.addEventListener('resize', function() {
+        clearTimeout(tid);
+        tid = setTimeout(refreshRem, 300);
+    }, false);
+    win.addEventListener('pageshow', function(e) {
+        if (e.persisted) {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }
+    }, false);
+    refreshRem();
+})(window);
+</script>
+</head>
+<body>
+<!-- 标题 -->
+	<header id="biaoti">
+		<div id="headerleft"><img src="photo/kafei-log.jpg" alt=""></div>
+		<div id="headerright"><img src="photo/kafei-biaoti.jpg" alt=""></div>
+	</header>
+<!--导航栏  -->
+	<nav id="nav">
+		<ul>
+			<li>店铺介绍</li>
+			<li>热卖产品</li>
+			<li>主打产品</li>
+			<li>健康小知识</li>
+		</ul>
+	</nav>
+<!--大图  -->
+     <figure id="figure">
+       <img src="photo/kafeibanner.jpg" alt="">
+     </figure>
+<!--内容  -->
+	 <article id="dianpu">
+	 	<figure id="leftphoto"><img src="photo/kafeijiaodiantu.jpg" alt=""></figure>
+	 	<article id="rightarticle">
+	 		<span id="span1">店铺简介：</span><br><br>2005年，北京中关村天创科技大厦，塞纳左岸国际餐饮管理（北京）有限公司正式成立。在这个被称为“中国硅谷”的淘金圣地，周围全是微软、百度、新浪、爱国者等等知名企业，塞纳左岸跟他们有一个共同点——清醒。面对中国咖啡市场的旷世机遇，当整个行业都在追求快速、盲目扩张的时候，塞纳左岸却针对中国数百个城市不同的市场和消费群体，进行了详尽而深入的市场调查，制定出一套完整详尽的投资方案，为日后深度拓展产品体系和支持体系做好前提保障。
+
+	 	</article>	
+	 </article>
+<!--热卖  -->
+	 <article class="biaoti1"><span class="span2">热卖产品</span></article>
+     <article id="remai">
+     	<div id="remaileft">
+     		<img src="photo/remai1.jpg" alt="">
+     	</div>
+     	<div id="remaimiddle">
+     		<div id="remaitop"><img src="photo/remai2.jpg" alt=""></div>
+     		<div id="remaibottom"><img src="photo/remai3.jpg" alt=""></div>
+     	</div>
+     	<div id="remairight">
+     		<img src="photo/remai4.jpg" alt="">
+     	</div>	
+     </article>
+<!-- 主打 -->
+      <article class="biaoti1"><span class="span2">主打产品</span></article>
+      <article id="zhuda">
+     	 <div id="zhuda1"> <img src="photo/zhuda1.jpg" alt=""> </div>
+     	 <div id="zhuda2"> <img src="photo/zhuda2.jpg" alt=""> </div>
+     	 <div id="zhuda3"> <img src="photo/zhuda3.jpg" alt=""> </div>
+     </article>	
+<!-- 健康小知识 -->
+      <article id="biaoti2"><span class="span3">健康小知识</span></article>
+      <article id="jiainkangxiaozhishi">
+     	 <div id="jiankangleft"><img src="photo/haochu.jpg" alt=""></div>
+     	 <div id="jiankangright"><img src="photo/huaichu.jpg" alt=""></div>
+     </article> 
+<!-- 页脚 -->
+	 <footer id="footer">
+	 	<figure id="banquan"><img src="photo/banquan.jpg" alt=""> </figure>
+	 </footer>
+</body>
+</html>
